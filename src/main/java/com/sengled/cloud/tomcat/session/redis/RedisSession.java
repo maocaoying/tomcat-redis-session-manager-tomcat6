@@ -34,7 +34,6 @@ public class RedisSession extends StandardSession {
   }
 
   public Boolean isDirty() {
-	log.fine("dirty :["+dirty+"] changedAttributes isempty: ["+changedAttributes.isEmpty()+"]");
     return dirty || !changedAttributes.isEmpty();
   }
 

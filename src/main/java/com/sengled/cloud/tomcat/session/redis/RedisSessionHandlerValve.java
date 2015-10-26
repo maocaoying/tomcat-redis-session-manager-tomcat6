@@ -33,15 +33,15 @@ public class RedisSessionHandlerValve extends ValveBase {
     try {
       if (session != null) {
         if (session.isValid()) {
-          log.fine("Request with session completed, saving session " + session.getId());
+          log.info("Request with session completed, saving session " + session.getId());
           if (session.getSession() != null) {
-            log.fine("HTTP Session present, saving " + session.getId());
+            log.info("HTTP Session present, saving " + session.getId());
             manager.save(session);
           } else {
-            log.fine("No HTTP Session present, Not saving " + session.getId());
+            log.info("No HTTP Session present, Not saving " + session.getId());
           }
         } else {
-          log.fine("HTTP Session has been invalidated, removing :" + session.getId());
+          log.info("HTTP Session has been invalidated, removing :" + session.getId());
           manager.remove(session);
         }
       }
